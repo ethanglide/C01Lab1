@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TextInput, Button } from "react-native";
 
-export default function AddTask({ onAddTask}) {
+export default function AddTask({ onAddTask }) {
     const [newTaskTitle, setNewTaskTitle] = useState("");
 
     function handleAddTask() {
-        if (newTaskTitle.trim() === "")
+        const trimmedTitle = newTaskTitle.trim();
+        if (trimmedTitle === "")
             return;
 
-        onAddTask(newTaskTitle);
+        onAddTask(trimmedTitle);
         setNewTaskTitle("");
     }
 
